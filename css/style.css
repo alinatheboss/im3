@@ -3,6 +3,10 @@ body {
     overflow: hidden;
     font-family: 'montserrat';
     background-color: #68C7C1;
+    background-image: url("/assets/Radio_BG.png");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 20%;
 }
 
 /* Font styling */
