@@ -1,14 +1,19 @@
 // -> Ausgabe Daten
 let data = null
 
+let api_data = [];
+
 // -> API
 async function get30days(artist) {
     const url = `https://im3.alinabosshard.ch/backend/api/get30days.php?artist=${artist}`;
     try {
         const response = await fetch(url);
-        const api_data = await response.json();
-        console.log(data);
+        api_data = await response.json();
         data = api_data
+        console.log(data);
+        showData(data,artist);
+
+            
 
         // Array für Chart aufbereiten
         const chartData = prepareChartData(data);
@@ -33,13 +38,13 @@ async function get30days(artist) {
          label: '',
          data: [],
          borderWidth: 0,
-         backgroundColor:"rgb(221, 83, 65, 100)",
+         backgroundColor:"rgb(245, 127, 91, 100)",
        },
        {
          label: '',
          data: [],
          borderWidth: 0,
-         backgroundColor:"rgb(245, 127, 91, 100)",
+         backgroundColor:"rgb(221, 83, 65, 100)",
        }
      ]
    },
@@ -84,7 +89,7 @@ async function get30days(artist) {
 
 // -> Datenaufbereitung
 function prepareChartData(rawData) {
-    // 1️⃣ Leeres Objekt für Tageszählung
+    // Leeres Objekt für Tageszählung
     const counts = {};
   
     rawData.forEach((item) => {
@@ -104,14 +109,14 @@ function prepareChartData(rawData) {
       if (item.sender === "srf") counts[formattedDate].srf++;
     });
   
-    // 2️⃣ Sortieren nach Datum
+    // Sortieren nach Datum
     const sortedKeys = Object.keys(counts).sort((a, b) => {
       const [dayA, monthA] = a.split(".").map(Number);
       const [dayB, monthB] = b.split(".").map(Number);
       return new Date(2025, monthA - 1, dayA) - new Date(2025, monthB - 1, dayB);
     });
   
-    // 3️⃣ Arrays für Chart erzeugen
+    // Arrays für Chart erzeugen
     const labels = sortedKeys.slice(-30); // nur die letzten 30 Tage
     const nrjData = labels.map((d) => counts[d].nrj);
     const srfData = labels.map((d) => counts[d].srf);
@@ -127,6 +132,14 @@ function prepareChartData(rawData) {
     chart.update();
   }
   
+  const homescreeninfo = `
+    <h1>Wer dominiert die Radioplaylists?</h1>
+    <p>Ob Dauerbrenner oder Überraschungshit, erfährst du, welche Artists die letzten 30 Tage bei SRF 1 und Energy besonders oft liefen. Einfach Namen eingeben und die Grafik verrät dir, wie präsent dein Artist war.</p>
+    `;
+
+    let anzeige = document.querySelector("#anzeige");
+    anzeige.innerHTML = homescreeninfo;
+
   // -> Suchfunktion
   const input = document.querySelector("#artist");
   const btn_go = document.querySelector("#go");
@@ -135,5 +148,35 @@ function prepareChartData(rawData) {
     const artist = input.value.trim();
     if (artist) {
       get30days(artist);
-    }
-  });
+      
+}});
+
+
+function showData(data,artist){
+    let srf_count = 0;
+        let nrj_count = 0;
+
+        // -> Zusammenzählen aller Einträge
+        data.forEach(async(item) => {
+        if(item.sender == "srf") srf_count ++;
+        if(item.sender == "nrj") nrj_count ++;     
+        } );
+
+        console.log(srf_count);
+        console.log(nrj_count);
+
+    //->innerHTML 
+    let artistinfo = `
+        <p>So oft spielten die Radios</p>
+        <h1>${artist}</h1>
+        <p>in den letzten 30 Tagen</p>
+        <h2>${srf_count}</h2>
+        <p>Mal auf SRF 1 gespielt</p>
+        <h2>${nrj_count}</h2>
+        <p>Mal auf NRJ gespielt</p>
+        `;
+        anzeige.innerHTML = artistinfo;
+        }
+
+
+
