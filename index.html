@@ -10,26 +10,27 @@
 
 
 
-<body>
+<body class="hintergrundbild">
     <header>
     </header>
-    
-    <h1>Wer dominiert die Radioplaylists?</h1>
-    <p>Ob Dauerbrenner oder Überraschungshit, <br> 
-    erfährst du, welche Artists die letzten 30 <br>
-    Tage bei SRF 1 und Energy besonders oft <br>
-    liefen. Einfach Namen eingeben und die <br>
-    Grafik verrät dir, wie präsent dein Artist war.</p>
-
-    <input type="text" name="artist" id="artist">
-    <button id='go'>GOOOOOO</button>
-
-    <div id="result" class="hidden"></div>
-    <div id="error" class="hidden">Keine Ergebnisse gefunden</div>
     
     <canvas id="chart"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <div>
+        <h1>Wer dominiert die Radioplaylists?</h1>
+    </div>
+
+    <div>
+        <p>Ob Dauerbrenner oder Überraschungshit, erfährst du, welche Artists die letzten 30 Tage bei SRF 1 und Energy besonders oft liefen. Einfach Namen eingeben und die Grafik verrät dir, wie präsent dein Artist war.</p>
+    </div>
+
+    <input type="text" name="artist" id="artist">
+    <button id='go'>GOOOOOO</button>
+    
+
+    
     <script type="module" src="../js/script.js"></script>
 </body>
 

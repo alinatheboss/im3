@@ -1,13 +1,17 @@
+:root {
+    --color-beige: #E8E3C3;
+    --color-brown: #794A3A;
+    --color-red: #DD5341;
+    --color-orange: #F57F5B;
+    --color-yellow: #FACA78;
+    --color-blue: #68C7C1;
+}
+
 body {
     margin: 0;
     overflow: hidden;
     font-family: 'montserrat';
-    background-color: #68C7C1;
-    
-    /* background-image: url("/assets/Radio_BG.png");
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: 20%; */
+    background-color: var(--color-blue);
 }
 
 /* Font styling */
@@ -15,11 +19,22 @@ h1, h2, h3, p {
     font-family: 'montserrat';
     text-align: center;
     margin-bottom: 20px;
-    color: #57372C;
+    color: var(--color-brown);
 }
 
-.hidden {
-    display: none;
-  }
   
 
+#chart {
+    max-width: 75vw;
+    align-items: center center;
+    max-height: 150px;
+    background-color: var(--color-beige);
+}
+
+.hintergrundbild {
+    background-image: url(../assets/Radio_BG.png); /* Pfad zum Bild */
+    background-position: center center; /* horizontal & vertikal zentriert */
+    background-repeat: no-repeat; /* Bild nicht wiederholen */
+    height: 80vh; /* volle Höhe des Browserfensters */
+    margin: 100px;
+  }
