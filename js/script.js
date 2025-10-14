@@ -10,6 +10,31 @@ async function get30days(artist) {
     }
 }
 
+ // -> chart
+ const canvas = document.querySelector('#chart');
+ chart = new Chart(canvas, {
+     type: 'bar',
+     data: {
+     labels: labels,
+     datasets: [{
+         label: 'Anzahl Personen',
+         data: numbers,
+         borderWidth: 1
+     }]
+     },
+     options: {
+         scales: {
+             y: {
+                 beginAtZero: true
+             }
+         },
+         plugins: {
+             legend: {
+                 display: false
+             }
+         }
+     }
+ });
 
 const input = document.querySelector('#artist');
 const btn_go = document.querySelector('#go');
