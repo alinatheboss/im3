@@ -87,45 +87,58 @@ async function get30days(artist) {
 });
 
 
-// -> Datenaufbereitung
 function prepareChartData(rawData) {
-    // Leeres Objekt für Tageszählung
-    const counts = {};
-  
-    rawData.forEach((item) => {
-      // Datum aus timestamp extrahieren (ohne Uhrzeit)
-      const date = new Date(item.timestamp);
-      const day = String(date.getDate()).padStart(2, "0");
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const formattedDate = `${day}.${month}`;
-  
-      // Sicherstellen, dass der Tag existiert
-      if (!counts[formattedDate]) {
-        counts[formattedDate] = { nrj: 0, srf: 0 };
-      }
-  
-      // Sender zählen
-      if (item.sender === "nrj") counts[formattedDate].nrj++;
-      if (item.sender === "srf") counts[formattedDate].srf++;
-    });
-  
-    // Sortieren nach Datum
-    const sortedKeys = Object.keys(counts).sort((a, b) => {
-      const [dayA, monthA] = a.split(".").map(Number);
-      const [dayB, monthB] = b.split(".").map(Number);
-      return new Date(2025, monthA - 1, dayA) - new Date(2025, monthB - 1, dayB);
-    });
-  
-    // Arrays für Chart erzeugen
-    const labels = sortedKeys.slice(-30); // nur die letzten 30 Tage
-    const nrjData = labels.map((d) => counts[d].nrj);
-    const srfData = labels.map((d) => counts[d].srf);
-  
-    return { labels, nrjData, srfData };
+  // Leeres Objekt für Tageszählung
+  const counts = {};
+
+  // Schritt 1: Alle letzten 30 Tage erzeugen
+  const today = new Date();
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const formattedDate = `${day}.${month}`;
+    counts[formattedDate] = { nrj: 0, srf: 0 }; // vorinitialisieren
   }
+
+  // Schritt 2: API-Daten eintragen
+  rawData.forEach((item) => {
+    const date = new Date(item.timestamp);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const formattedDate = `${day}.${month}`;
+
+    // Sicherstellen, dass der Tag existiert
+    if (!counts[formattedDate]) {
+      counts[formattedDate] = { nrj: 0, srf: 0 };
+    }
+
+    // Sender zählen
+    if (item.sender === "nrj") counts[formattedDate].nrj++;
+    if (item.sender === "srf") counts[formattedDate].srf++;
+  });
+
+  // Schritt 3: Labels sortieren (nach Datum)
+  const sortedKeys = Object.keys(counts).sort((a, b) => {
+    const [dayA, monthA] = a.split(".").map(Number);
+    const [dayB, monthB] = b.split(".").map(Number);
+    return new Date(2025, monthA - 1, dayA) - new Date(2025, monthB - 1, dayB);
+  });
+
+  // Schritt 4: Arrays für Chart erzeugen
+  const labels = sortedKeys;
+  const nrjData = labels.map((d) => counts[d].nrj);
+  const srfData = labels.map((d) => counts[d].srf);
+
+  return { labels, nrjData, srfData };
+}
+
   
   // -> Chart aktualisieren
   function updateChart(chartData) {
+    console.log(chartData);
     chart.data.labels = chartData.labels;
     chart.data.datasets[0].data = chartData.nrjData;
     chart.data.datasets[1].data = chartData.srfData;
