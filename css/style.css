@@ -18,10 +18,14 @@ body {
 h1, h2, h3, p {
     font-family: 'montserrat';
     text-align: center;
+    margin: 0;
     margin-bottom: 20px;
     color: var(--color-brown);
 }
 
+h1 {
+  margin-top: 24px;
+}
   
 
 #chart {
@@ -29,7 +33,7 @@ h1, h2, h3, p {
     align-items: center center;
     max-height: 150px;
     background-color: var(--color-beige);
-    margin-top: 14vh;
+    margin-top: 13vh;
 }
 
 .hintergrund {
@@ -58,17 +62,23 @@ h1, h2, h3, p {
   }
 
   .input-wrapper {
-    position: relative;
-    width: 220px; /* Breite des Inputfeldes */
+    display: flex;
+    align-items: center; /* vertikal zentrieren */
+    width: 220px;
+    border: 2px solid var(--color-brown);
+    border-radius: 30px;
+    padding: 0 10px;
+    background-color: transparent;
   }
   
   /* --- Inputfeld --- */
   #artist {
-    width: 100%;
-    border: 2px solid var(--color-brown);
-    background-color: transparent;
-    padding: 10px 0px 10px 20px;
+    flex: 1; /* Input nimmt den gesamten Platz ein */
+    border: none;
+    outline: none;
+    padding: 10px 0 10px 10px;
     font-size: 16px;
+    background: transparent;
     font-family: 'montserrat';
     color: var(--color-brown);
     outline: none;
@@ -85,17 +95,13 @@ h1, h2, h3, p {
   
   /* --- Button mit SVG-Pfeil nach rechts --- */
   .search-btn {
-    position: absolute;
-    top: 50%;
-    right: 0px; /* Abstand zum rechten Rand */
-    transform: translateY(-50%);
     border: none;
     background: none;
     cursor: pointer;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 5px;
   }
 
   .search-btn img {

@@ -186,18 +186,24 @@ function showData(data,artist){
         console.log(srf_count);
         console.log(nrj_count);
 
-    //->innerHTML 
-    let artistinfo = `
-        <p>So oft spielten die Radios</p>
-        <h1>${artist}</h1>
-        <p>in den letzten 30 Tagen</p>
-        <h2>${srf_count}</h2>
+      let artistinfo = `
+      <p>So oft spielten die Radios</p>
+      <h1>${artist}</h1>
+      <p>in den letzten 30 Tagen</p>
+
+      <div style="display: flex; align-items: baseline; gap: 5px;">
+        <h3>${srf_count}</h3>
         <p>Mal auf SRF 1 gespielt</p>
-        <h2>${nrj_count}</h2>
+      </div>
+
+      <div style="display: flex; align-items: baseline; gap: 5px;">
+        <h3>${nrj_count}</h3>
         <p>Mal auf NRJ gespielt</p>
-        `;
-        anzeige.innerHTML = artistinfo;
-        }
+      </div>
+    `;
+    anzeige.innerHTML = artistinfo;
+
+  }
 
 
 
