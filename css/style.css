@@ -25,16 +25,26 @@ h1, h2, h3, p {
   
 
 #chart {
-    max-width: 75vw;
+    max-width: 70%;
     align-items: center center;
     max-height: 150px;
     background-color: var(--color-beige);
+    margin-top: 14vh;
 }
 
-.hintergrundbild {
+.hintergrund {
     background-image: url(../assets/Radio_BG.png); /* Pfad zum Bild */
     background-position: center center; /* horizontal & vertikal zentriert */
     background-repeat: no-repeat; /* Bild nicht wiederholen */
+    background-size: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 80vh; /* volle Höhe des Browserfensters */
     margin: 100px;
+  }
+
+  .infocontent {
+    max-width:30%;
+    margin-top: 7vh;
   }
