@@ -55,18 +55,24 @@ async function get30days(artist) {
         }
       },
       scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: "gespielte Songs",
-          font: {
-          size: 14,        // optional: Schriftgröße
-          weight: 'bold',
-          color: "rgb(121, 74, 58, 100)"
-        }
+        y: {
+          beginAtZero: true,
+          min: 0,
+          max: 8,
+          ticks: {
+            stepSize: 1,
+          },
+          title: {
+            display: true,
+            text: "gespielte Songs",
+            font: {
+              size: 14,
+              weight: 'bold',
+              color: "rgb(121, 74, 58, 100)"
+            }
+          },
         },
-      },
+        
       x: {
         beginAtZero: true,
         title: {
@@ -85,6 +91,8 @@ async function get30days(artist) {
     
   },
 });
+
+
 
 
 function prepareChartData(rawData) {
@@ -193,3 +201,39 @@ function showData(data,artist){
 
 
 
+
+        function createEmptyChartData() {
+          const counts = {};
+          const today = new Date();
+        
+          for (let i = 29; i >= 0; i--) {
+            const d = new Date(today);
+            d.setDate(today.getDate() - i);
+            const day = String(d.getDate()).padStart(2, "0");
+            const month = String(d.getMonth() + 1).padStart(2, "0");
+            const formattedDate = `${day}.${month}`;
+            counts[formattedDate] = { nrj: 0, srf: 0 };
+          }
+        
+          const labels = Object.keys(counts);
+          const nrjData = labels.map(() => 0);
+          const srfData = labels.map(() => 0);
+        
+          return { labels, nrjData, srfData };
+        }
+
+        // -> Chart mit Dummy-Daten füllen
+const emptyData = createEmptyChartData();
+updateChart(emptyData);
+
+
+
+// -> Suche auch mit Enter-Taste starten
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    const artist = input.value.trim();
+    if (artist) {
+      get30days(artist);
+    }
+  }
+});

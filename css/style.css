@@ -49,4 +49,62 @@ h1, h2, h3, p {
     margin-top: 7vh;
   }
 
+
+/* --- Suchfeld-Container --- */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 220px; /* Breite des Inputfeldes */
+  }
   
+  /* --- Inputfeld --- */
+  #artist {
+    width: 100%;
+    border: 2px solid var(--color-brown);
+    background-color: transparent;
+    padding: 10px 0px 10px 20px;
+    font-size: 16px;
+    font-family: 'montserrat';
+    color: var(--color-brown);
+    outline: none;
+    border-radius: 30px;
+    transition: border-color 0.3s;
+  }
+  
+  #artist::placeholder {
+    color: var(--color-brown);
+    opacity: 0.5;
+  }
+
+  
+  
+  /* --- Button mit SVG-Pfeil nach rechts --- */
+  .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 0px; /* Abstand zum rechten Rand */
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-btn img {
+    width: 20px;
+    height: 20px;
+    filter: invert(21%) sepia(24%) saturate(764%) hue-rotate(340deg) brightness(91%) contrast(87%); /* Braun */
+    transition: filter 0.3s ease, transform 0.2s ease;
+  }
+  
+  .search-btn:hover img {
+    filter: invert(94%) sepia(14%) saturate(394%) hue-rotate(358deg) brightness(96%) contrast(90%); /* Beige */
+  }
