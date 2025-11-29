@@ -120,20 +120,28 @@ h1 {
 @media (max-width: 1024px) {
 
   .hintergrund {
-      margin: 40px;
-      height: auto;
-      background-size: cover;
+    background-image: url("../assets/Radio_Mobile.png");
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #chart {
-      max-width: 80%;
+      max-width: 90%;
       max-height: 200px;
-      margin-top: 10vh;
+      margin-top: -3vh;
   }
 
   .infocontent {
-      max-width: 30%;
-      margin-top: 10vh;
+      max-width: 35%;
+      margin-top: 1vh;
   }
 
   .input-wrapper {
@@ -159,9 +167,7 @@ h1 {
       padding: 0;
       width: 100%;
       height: 100vh;
-      display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       align-items: center;
   }
 
@@ -172,17 +178,17 @@ h1 {
 
   
   .infocontent {
-      max-width: 80%;
-      margin: 0;
-      padding-bottom: 120px; 
+      max-width: 70%;
       text-align: center;
-      text-size-adjust: 85%;
+      text-size-adjust: 70%;
+      justify-content: center;
   }
 
+  .titel { 
+    margin-bottom: 2vh;
+  }
 
   .search-container {
-      margin-top: -20%;
-      margin-bottom: 200px;
       width: 100%;
       display: flex;
       justify-content: center;

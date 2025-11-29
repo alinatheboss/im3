@@ -154,8 +154,8 @@ function prepareChartData(rawData) {
   }
   
   const homescreeninfo = `
-    <h1>Wer dominiert die Radioplaylists?</h1>
-    <p>Ob Dauerbrenner oder Überraschungshit, erfährst du, welche Artists die letzten 30 Tage bei SRF 1 und Energy besonders oft liefen. Einfach Namen eingeben und die Grafik verrät dir, wie präsent dein Artist war.</p>
+    <h1 class="titel">Wer dominiert die Radioplaylists?</h1>
+    <p class="paragraph">Ob Dauerbrenner oder Überraschungshit, erfährst du, welche Artists die letzten 30 Tage bei SRF 1 und Energy besonders oft liefen. Einfach Namen eingeben und die Grafik verrät dir, wie präsent dein Artist war.</p>
     `;
 
     let anzeige = document.querySelector("#anzeige");
