@@ -120,7 +120,7 @@ h1 {
 @media (max-width: 1024px) {
 
   .hintergrund {
-    background-image: url("../assets/Radio_Mobile.png");
+    background-image: url("../assets/Radio_BG.png");
     background-size: 85%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -134,23 +134,24 @@ h1 {
   }
 
   #chart {
-      max-width: 90%;
-      max-height: 200px;
-      margin-top: -3vh;
+      max-width: 55vh;
+      max-height: 10vh;
+      margin-top: 20vh;
   }
 
   .infocontent {
-      max-width: 35%;
-      margin-top: 1vh;
+      max-width: 20vh;
+      text-size-adjust: 75%;
   }
 
   .input-wrapper {
-      width: 260px;
+      width: 18vh;
+      margin-bottom: 15vh;
   }
 }
 
-/* Mobile: bis 768px */
-@media (max-width: 768px) {
+/* Mobile: bis 767px */
+@media (max-width: 767px) {
 
   /* Kein Scrollen */
   html, body {
@@ -185,18 +186,23 @@ h1 {
   }
 
   .titel { 
-    margin-bottom: 2vh;
+    margin-top: 3vh;
+  }
+
+  .paragraph {
+    margin-top: 25vh;
   }
 
   .search-container {
       width: 100%;
       display: flex;
       justify-content: center;
+      margin-bottom: -12vh;
   }
 
   .input-wrapper {
-      width: 80%;
-      max-width: 260px;
+      width: 25vh;
+      max-width: 32vh;
       padding: 0 12px;
   }
 
