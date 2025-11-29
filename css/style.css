@@ -29,15 +29,15 @@ h1 {
   
 
 #chart {
-    max-width: 70%;
+    max-width: 65%;
     align-items: center center;
     max-height: 150px;
     background-color: var(--color-beige);
-    margin-top: 13vh;
+    margin-top: 15vh;
 }
 
 .hintergrund {
-    background-image: url(../assets/Radio_BG.png); /* Pfad zum Bild */
+    background-image: url(../assets/Radio_BG.png); 
     background-position: center center; /* horizontal & vertikal zentriert */
     background-repeat: no-repeat; /* Bild nicht wiederholen */
     background-size: auto;
@@ -49,7 +49,7 @@ h1 {
   }
 
   .infocontent {
-    max-width:30%;
+    max-width:25%;
     margin-top: 7vh;
   }
 
@@ -114,3 +114,89 @@ h1 {
   .search-btn:hover img {
     filter: invert(94%) sepia(14%) saturate(394%) hue-rotate(358deg) brightness(96%) contrast(90%); /* Beige */
   }
+
+
+/* --- Tablet (max. ~1024px) --- */
+@media (max-width: 1024px) {
+
+  .hintergrund {
+      margin: 40px;
+      height: auto;
+      background-size: cover;
+  }
+
+  #chart {
+      max-width: 80%;
+      max-height: 200px;
+      margin-top: 10vh;
+  }
+
+  .infocontent {
+      max-width: 30%;
+      margin-top: 10vh;
+  }
+
+  .input-wrapper {
+      width: 260px;
+  }
+}
+
+/* Mobile: bis 768px */
+@media (max-width: 768px) {
+
+  /* Kein Scrollen */
+  html, body {
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .hintergrund {
+      background-image: url("../assets/Radio_Mobile.png");
+      background-size: 85%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+  }
+
+  /* Chart entfernen */
+  #chart {
+      display: none !important;
+  }
+
+  
+  .infocontent {
+      max-width: 80%;
+      margin: 0;
+      padding-bottom: 120px; 
+      text-align: center;
+      text-size-adjust: 85%;
+  }
+
+
+  .search-container {
+      margin-top: -20%;
+      margin-bottom: 200px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .input-wrapper {
+      width: 80%;
+      max-width: 260px;
+      padding: 0 12px;
+  }
+
+  #artist {
+      font-size: 15px;
+  }
+}
+
+
