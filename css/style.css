@@ -216,5 +216,19 @@ h1 {
       font-size: 15px;
   }
 }
+/* ===== Mobile: Hintergrundwechsel, sobald ein Artist eingegeben ist ===== */
+@media (max-width: 767px) {
 
+  /* Sobald Input NICHT leer ist */
+  body.hintergrund:has(#artist:not(:placeholder-shown)) {
+    background-image: url("../assets/Radio_Mobile.png");
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 
+  /* Chart nur dann ausblenden */
+  body.hintergrund:has(#artist:not(:placeholder-shown)) #chart {
+    display: none;
+  }
+}
