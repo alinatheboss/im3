@@ -16,6 +16,7 @@ Auch beim Styling standen wir vor Herausforderungen.
 Insbesondere das korrekte Einbinden der Grafik sowie deren Platzierung erwiesen sich als zeitaufwendig und anspruchsvoll. 
 Zusätzlich zeigte sich, dass es deutlich einfacher gewesen wäre, das Projekt zeitnah abzuschliessen. 
 Nach einer längeren Unterbrechung erneut in den Code und die Projektlogik einzusteigen, erforderte viel Zeit und Konzentration.
+Im Responisve Design auf der Mobile Ansicht haben wir die Flexbox und deren unteren Margin nicht entfernen können. Wir haben leider nicht herausgefunden, wieso dieser grosse Abstand in unserem Code drin ist. 
 
 Insgesamt konnten wir wertvolle Learnings sowohl im technischen als auch im organisatorischen Bereich mitnehmen. 
 Eine klare Struktur im Unterricht und frühzeitige Unterstützung sind entscheidend für den Projekterfolg. 
@@ -28,5 +29,3 @@ Gleichzeitig hat sich gezeigt, wie wichtig ein kontinuierliches Arbeiten am Proj
 - GitHub
 - Chat GPT
 
-# Verwendete Prompts für ChatGPT
-- 
